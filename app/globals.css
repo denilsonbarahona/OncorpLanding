@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.container {
+  @apply max-w-[1464px] px-[32px] sm:px-[48px] lg:px-[96px] mx-auto;
+
+  @media all and (max-width: 360px) {
+    padding: 0 16px;
+  }
+}
+
+#home-hero {
+  background-image: url(../public/assets/home-hero-bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover auto;
+  /* @apply bg-cover; */
+  background-position: bottom;
+}
+#contact-hero {
+  background-image: url(../public/assets/home-hero-bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover auto;
+  /* @apply bg-cover; */
+  /* height: 80vh; */
+  background-position: bottom;
+}
+#ongear {
+  background-image: url(../public/assets/services/ongear-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover auto;
+  @apply bg-cover;
+}
+#projects-hero {
+  background-image: url(../public/assets/projects/projects-hero-bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover auto;
+  background-position: bottom;
+  @media all and (max-width: 768px) {
+    background-image: url(../public/assets/projects/projects-hero-bg-sm.png);
+  }
+}
+#services-hero {
+  background-image: url(../public/assets/services/services-hero-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover auto;
+  background-position: bottom;
+  @media all and (max-width: 768px) {
+    background-image: url(../public/assets/services/services-hero-bg-sm.png);
+  }
+}
+#about-us-hero {
+  background-image: url(../public/assets/about-us/about-us-hero-bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover auto;
+  /* @apply bg-cover; */
+  background-position: bottom center;
+
+  @media all and (max-width: 768px) {
+    background-image: url(../public/assets/about-us/about-us-hero-bg-sm.png);
+  }
+}
+
+.text-gd {
+  background: linear-gradient(263deg, #ced4da 24.73%, #ebeff4 86.57%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gd {
+  position: relative;
+  background: linear-gradient(135deg, #ff0080 0%, #7928ca 100%);
+  box-shadow: 0px 4px 7px -1px rgba(0, 0, 0, 0.11),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.5s ease;
+  overflow: hidden;
+}
+.bg-gd span {
+  position: relative;
+  z-index: 3;
+}
+
+.bg-gd::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #7928ca 0%, #ff0080 100%);
+  opacity: 0; /* Start with the second gradient hidden */
+  transition: opacity 0.3s ease; /* Transition opacity */
+  z-index: -1;
+}
+
+.bg-gd:hover::before {
+  opacity: 1; /* Show the second gradient on hover */
+  z-index: 2;
+}
+.bg-gd:hover::before {
+  opacity: 1; /* Show the second gradient on hover */
+}
+
+.text-bg-gd {
+  background: linear-gradient(310deg, #7928ca 0%, #ff0080 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#footer {
+  background-image: url("../public/assets/footer-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+  @apply bg-center lg:bg-left-top;
+}
+
+/* Common bubble hover effect */
+.circle-box {
+  background: radial-gradient(
+    85.35% 111.98% at 72.85% 8.61%,
+    #fff 74.91%,
+    #c8c6d8 100%
+  );
+  stroke: #f8f9fa;
+  filter: drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s, box-shadow 0.5s; /* Adding smooth transition for background and shadow */
+}
+
+.circle-box span {
+  background: linear-gradient(82deg, #3a416f 2.25%, #141727 79.87%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.5s; /* Adding transition for text color */
+}
+
+#onCorp.circle-box span {
+  background: linear-gradient(310deg, #7928ca 0%, #ff0080 100%);
+}
+
+#onCorp.circle-box .arrow-ongear,
+#onCorp.circle-box .arrow-onsoft,
+#onCorp.circle-box .arrow-onsupply,
+#onCorp.circle-box .arrow-onguide {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Adding smooth transition for opacity */
+}
+
+#onCorp.circle-box span {
+  background: linear-gradient(310deg, #7928ca 0%, #ff0080 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover effect for Gear, Soft, Supply, and Guide */
+#onGear:hover,
+#onSoft:hover,
+#onSupply:hover,
+#onGuide:hover {
+  /* background: linear-gradient(135deg, #7928ca 0%, #ff0080 100%) !important; */
+  transition: background 0.5s; /* Ensure transition on hover */
+}
+#onGear::before,
+#onSoft::before,
+#onSupply::before,
+#onGuide::before,
+#onCorp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #7928ca 0%, #ff0080 100%) !important;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  border-radius: 100%;
+}
+
+#onGear:hover::before,
+#onSoft:hover::before,
+#onSupply:hover::before,
+#onGuide:hover::before {
+  opacity: 1;
+  z-index: 2;
+}
+#onGear span,
+#onGuide span,
+#onSupply span,
+#onSoft span,
+#onCorp span {
+  position: relative;
+  z-index: 3;
+}
+
+#onGear:hover span,
+#onSoft:hover span,
+#onSupply:hover span,
+#onGuide:hover span {
+  background: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.5s; /* Ensure smooth text color change */
+}
+
+#onGear:hover ~ #onCorp::before,
+#onSoft:hover ~ #onCorp::before,
+#onSupply:hover ~ #onCorp::before,
+#onGuide:hover ~ #onCorp::before {
+  opacity: 1;
+  z-index: 2;
+}
+
+#onGear:hover ~ #onCorp.circle-box span,
+#onSoft:hover ~ #onCorp.circle-box span,
+#onSupply:hover ~ #onCorp.circle-box span,
+#onGuide:hover ~ #onCorp.circle-box span {
+  background: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Arrow visibility on hover */
+#onGear:hover ~ #onCorp.circle-box .arrow-ongear,
+#onSoft:hover ~ #onCorp.circle-box .arrow-onsoft,
+#onSupply:hover ~ #onCorp.circle-box .arrow-onsupply,
+#onGuide:hover ~ #onCorp.circle-box .arrow-onguide {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* waves animation */
+
+#wave-animation-wrapperr .waves {
+  /* position: relative; */
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+
+/* Animation */
+
+#wave-animation-wrapperr .parallax > use {
+  animation: move-forever 30s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+#wave-animation-wrapperr .parallax > use:nth-child(1) {
+  animation-delay: -1s;
+  animation-duration: 5s;
+}
+
+#wave-animation-wrapperr .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+#wave-animation-wrapperr .parallax > use:nth-child(3) {
+  animation-delay: -10s;
+  animation-duration: 10s;
+}
+
+#wave-animation-wrapperr .parallax > use:nth-child(4) {
+  animation-delay: -8s;
+  animation-duration: 15s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* /* Shrinking for mobile */
+@media (max-width: 768px) {
+  #wave-animation-wrapperr .waves {
+    height: 70px;
+    min-height: 40px;
+  }
+
+  #wave-animation-wrapperr .content {
+    height: 30vh;
+  }
+}
+@media (max-width: 575px) {
+  #wave-animation-wrapperr .waves {
+    height: 50px;
+    min-height: 40px;
+  }
+
+  #wave-animation-wrapperr .content {
+    height: 30vh;
+  }
+}
+
+#wave-animation-wrapper .waves {
+  position: relative;
+  width: 100%;
+  height: 16vh;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px;
+}
+@media (max-width: 1024px) {
+  #wave-animation-wrapper .waves {
+    min-height: 100px;
+    max-height: 100px;
+  }
+}
+@media (max-width: 575px) {
+  #wave-animation-wrapper .waves {
+    min-height: 50px;
+    max-height: 50px;
+  }
+}
+#wave-animation-wrapper .moving-waves > use {
+  animation: f 40s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+#wave-animation-wrapper .moving-waves > use:first-child {
+  animation-delay: -2s;
+  animation-duration: 11s;
+}
+#wave-animation-wrapper .moving-waves > use:nth-child(2) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+#wave-animation-wrapper .moving-waves > use:nth-child(3) {
+  animation-delay: -3s;
+  animation-duration: 15s;
+}
+#wave-animation-wrapper .moving-waves > use:nth-child(4) {
+  animation-delay: -4s;
+  animation-duration: 20s;
+}
+#wave-animation-wrapper .moving-waves > use:nth-child(5) {
+  animation-delay: -4s;
+  animation-duration: 25s;
+}
+
+@keyframes f {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
